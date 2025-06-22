@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorkScout - Job Board</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --primary-color: #283747;
+                --secondary-color: #007bff;
+                --background-light: #f4f7f6;
+                --text-dark: #333;
+                --text-light: #555;
+                --border-color: #ddd;
+                --card-background: #fff;
+                --error-color: #dc3545;
+            }
+            body {
+                font-family: 'Inter', sans-serif;
+            }
+        }
+        @layer components {
+            .navbar-link::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: -5px;
+                left: 0;
+                background-color: var(--secondary-color);
+                transition: width 0.3s ease;
+            }
+            .navbar-link:hover::after {
+                width: 100%;
+            }
+            .job-type-tag {
+                @apply inline-block px-2 py-1 rounded text-xs ml-2 font-semibold;
+            }
+            .part-time-tag {
+                @apply bg-orange-100 text-orange-600;
+            }
+            .full-time-tag {
+                @apply bg-teal-100 text-teal-600;
+            }
+            .message-box {
+                @apply px-4 py-3 rounded text-center text-sm mt-5 hidden;
+            }
+            .message-box.error {
+                @apply bg-red-100 text-red-700 border border-red-200;
+            }
+            .message-box.success {
+                @apply bg-green-100 text-green-700 border border-green-200;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans bg-[var(--background-light)] text-[var(--text-dark)] leading-relaxed min-h-screen flex flex-col">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</body>
+</html>
